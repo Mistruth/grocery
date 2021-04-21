@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    const map = {
+      1: "A",
+      2: 'B',
+      3: 'C',
+      4: 'D',
+      5: 'E',
+      6: 'F',
+      7: 'G',
+      8: 'H',
+      9: 'I',
+      10: 'J',
+      11: 'K',
+      12: 'L',
+      13: 'M',
+      14: 'N',
+      15: 'O',
+      16: 'P',
+      17: 'Q',
+      18: 'R',
+      19: 'S',
+      20: 'T',
+      21: 'U',
+      22: 'V',
+      23: 'W',
+      24: 'X',
+      25: 'Y',
+      26: 'Z'
+    }
+    
+    /**
+    * @param {string} s
+    * @return {number}
+    */
+    // var numDecodings = function(s) {
+
+    //   if(!s.length) {
+    //     return 0
+    //   }
+
+    //   if(s.length === 1) {
+    //     if(s <=26 && s>0) {
+    //       return 1
+    //     } else {
+    //       return 0
+    //     }
+    //   }
+
+    //   const cutone = s.substr(1)
+    //   const cutTwo = s.substr(2)
+
+    //   const splitOne = +s.substr(0, 1)
+    //   const splitTwo = +s.substr(0, 2)
+
+    //   if(splitTwo > 26) {
+    //     return numDecodings(cutone)
+    //   } else {
+    //     return (splitOne === 0 ? 0 : numDecodings(cutone)) + (cutTwo ? numDecodings(cutTwo) : 1)
+    //   }
+    // };
+
+    var numDecodings = function(s) {
+
+      const dp = []
+      dp[0] = 1
+
+      for(let i = 1; i < s.length; i++) {
+        dp[i] = +`${s[i-1]}${s[i]}` <= 26 ? (dp[i - 1] + 1) : (dp[i - 1])
+      }
+
+      return dp[dp.length - 1]
+    }
+
+    const res = numDecodings('226')
+
+    console.log(res)
+
+  </script>
+</body>
+</html>
