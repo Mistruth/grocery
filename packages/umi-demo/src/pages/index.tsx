@@ -1,9 +1,18 @@
-import styles from './index.less';
+import Increment from './increment'
+import Decrement from './decrement'
+import useCount from './hooks'
+
 
 export default function IndexPage() {
+  const { count } = useCount()
+
   return (
     <div>
-      <h1 className={styles.title}>Page index</h1>
+      <Increment></Increment>
+      <Decrement></Decrement>
+      <div>
+        {count}
+      </div>
     </div>
   );
 }
