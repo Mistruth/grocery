@@ -21,9 +21,34 @@
      * @param {TreeNode} root
      * @return {TreeNode}
      */
+
+
+    function TreeNode(val, left, right) {
+      this.val = (val===undefined ? 0 : val)
+      this.left = (left===undefined ? null : left)
+      this.right = (right===undefined ? null : right)
+    }
     var increasingBST = function(root) {
       
+      let cur = new TreeNode()
+      let treeNode = cur
+
+      map(root)
+
+      return treeNode.right
+
+      function map(root) {
+        if(!root) return 
+        if(!root) return
+
+        map(root.left)
+        cur.right = new TreeNode(root.val)
+        cur = cur.right
+        map(root.right)
+      }
     };
+
+    
 
 
   </script>
